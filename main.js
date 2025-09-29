@@ -1,17 +1,13 @@
+const currency = "JPY";
+const exact_date = "20240127"; // формат YYYYMMDD
 
-const currency = "EUR";
-const exact_date = "02.03.2020";
+let url = new URL("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
 
-let url = new URL("https://bank.gov.ua/");
-
-
-const params = new URLSearchParams(url.search);
-
-
-params.append("currency", currency);
-params.append("exact_date", exact_date);
+const params = new URLSearchParams();
+params.append("valcode", currency);
+params.append("date", exact_date);
+params.append("json", ""); // параметр без значення
 
 url.search = params.toString();
-
 
 console.log(url.toString());
